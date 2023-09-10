@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {photos.map(photo => <PhotoListItem data={photo} key={photo.id}/>)}
+      {photos.map((photo, index) => <PhotoListItem data={photo} key={index}/>)}
     </div>
   );
 };
