@@ -6,8 +6,16 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton() {
   const [like, setLike] = useState('');
 
+  const handleClick = () => {
+    if (like) {
+      setLike('');
+    } else {
+      setLike('true');
+    }
+  };
+
   return (
-    <div className="photo-list__fav-icon" onClick={() => setLike('true')}>
+    <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
         <FavIcon selected={like}></FavIcon>
       </div>
