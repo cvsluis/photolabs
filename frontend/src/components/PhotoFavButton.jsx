@@ -10,7 +10,7 @@ function PhotoFavButton() {
     if (like) {
       setLike('');
     } else {
-      setLike('true');
+      setLike(true);
     }
   };
 
