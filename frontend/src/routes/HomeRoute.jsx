@@ -7,12 +7,13 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = () => {
   const [like, setLike] = useState([]);
-  const toggleLike = (id) => like.includes(id) ? setLike(like.filter(e => e !== id)) : setLike([...like, id]);
+  const toggleLike = (photoId) => like.includes(photoId) ? setLike(like.filter(e => e !== photoId)) : setLike([...like, photoId]);
+  const isLiked = (photoId) => like.includes(photoId);
 
   return (
     <div className="home-route">
       <TopNavigationBar />
-      <PhotoList like={like} toggleLike={toggleLike} photos={photos} />
+      <PhotoList isLiked={isLiked} toggleLike={toggleLike} photos={photos} />
     </div>
   );
 };
