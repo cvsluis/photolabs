@@ -16,12 +16,13 @@ const HomeRoute = () => {
   // state for opening the photo details modal
   const [modal, setModal] = useState(false);
   const showModal = () => setModal(true);
+  const hideModal = () => setModal(false);
 
   return (
     <div className="home-route">
       <TopNavigationBar isFavPhotoExist={isFavPhotoExist}/>
       <PhotoList isLiked={isLiked} toggleLike={toggleLike} photos={photos} showModal={showModal}/>
-      {modal && <PhotoDetailsModal/>}
+      {modal && <PhotoDetailsModal hideModal={hideModal}/>}
     </div>
   );
 };
