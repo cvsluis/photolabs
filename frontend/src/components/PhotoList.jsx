@@ -7,7 +7,7 @@ import "../styles/PhotoList.scss";
 const PhotoList = ({ isLiked, toggleLike, photos, showModal }) => {
   const photoList = photos.map(photo => {
     return (
-      <PhotoListItem key={photo.id} isLiked={isLiked} toggleLike={toggleLike} photoId={photo.id} data={photo} showModal={showModal}/>
+      <PhotoListItem key={photo.id} isLiked={isLiked} toggleLike={toggleLike} photoId={photo.id} data={photo} showModal={() => showModal(photo)}/>
     );
   });
 
