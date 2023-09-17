@@ -13,7 +13,7 @@ const PhotoListItem = ({ isLiked, toggleLike, photoId, data, showModal }) => {
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt={`Profile Image for ${user.username}`}></img>
         <div className="photo-list__user-info">
-          <span>{user.username}</span>
+          <span>{user.name}</span>
           <div className="photo-list__user-location">
             {location.city}, {location.country}
           </div>
