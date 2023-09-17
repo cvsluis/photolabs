@@ -21,7 +21,6 @@ const HomeRoute = () => {
   const showModal = (photo) => {
     setModal(true);
     setSelectedPhoto(photo);
-    console.log(photo);
   };
   const hideModal = () => setModal(false);
 
@@ -29,7 +28,7 @@ const HomeRoute = () => {
     <div className="home-route">
       <TopNavigationBar isFavPhotoExist={isFavPhotoExist}/>
       <PhotoList isLiked={isLiked} toggleLike={toggleLike} photos={photos} showModal={showModal}/>
-      {modal && <PhotoDetailsModal hideModal={hideModal} selectedPhoto={selectedPhoto} />}
+      {modal && <PhotoDetailsModal hideModal={hideModal} selectedPhoto={selectedPhoto} isLiked={isLiked} toggleLike={toggleLike}/>}
     </div>
   );
 };
