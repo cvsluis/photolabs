@@ -3,8 +3,8 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ isLiked, toggleLike, photoId, data, showModal }) => {
-  const { urls, user, location } = data;
+const PhotoListItem = ({ isLiked, toggleLike, photoId, photo, showModal }) => {
+  const { urls, user, location } = photo;
 
   return (
     <div className="photo-list__item">
