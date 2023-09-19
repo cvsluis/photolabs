@@ -1,10 +1,9 @@
 import React from 'react';
-
-import '../styles/PhotoDetailsModal.scss';
-import '../styles/PhotoListItem.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
+import '../styles/PhotoDetailsModal.scss';
+import '../styles/PhotoListItem.scss';
 
 const PhotoDetailsModal = ({ isLiked, toggleLike, hideModal, selectedPhoto }) => {
   const { id, urls, user, location, similar_photos } = selectedPhoto;
