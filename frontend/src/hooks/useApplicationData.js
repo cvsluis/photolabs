@@ -38,9 +38,9 @@ const reducer = (state, action) => {
 export const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-  const updateToFavPhotoIds = (photoId) => dispatch({ type: ACTIONS.TOGGLE_LIKE, payload: photoId });
+  const updateToFavPhotoIds = photoId => dispatch({ type: ACTIONS.TOGGLE_LIKE, payload: photoId });
 
-  const setPhotoSelected = (photo) => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
+  const setPhotoSelected = photo => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
 
   const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
 

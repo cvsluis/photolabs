@@ -1,7 +1,6 @@
 import React from "react";
-
-import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ isLiked, toggleLike, photoId, photo, showModal }) => {
   const { urls, user, location } = photo;

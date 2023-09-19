@@ -1,7 +1,6 @@
 import React from "react";
 import TopicListItem from "./TopicListItem";
 import topics from "mocks/topics";
-
 import "../styles/TopicList.scss";
 
 const TopicList = () => {
