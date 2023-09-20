@@ -14,7 +14,6 @@ const ACTIONS = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-
     case ACTIONS.TOGGLE_LIKE:
       const photoId = action.payload;
       if (state.likes.includes(photoId)) {
@@ -29,9 +28,7 @@ const reducer = (state, action) => {
       return { ...state, modal: false, selectedPhoto: null };
 
     default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
+      throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
 };
 

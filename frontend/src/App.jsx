@@ -12,7 +12,7 @@ const App = () => {
     onClosePhotoDetailsModal
   } = useApplicationData();
 
-  const isLiked = (photoId) => likes.includes(photoId);
+  const isLiked = photoId => likes.includes(photoId);
   const isFavPhotoExist = likes.length > 0;
 
   return (
