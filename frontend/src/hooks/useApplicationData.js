@@ -12,7 +12,8 @@ const ACTIONS = {
   TOGGLE_LIKE: 'TOGGLE_LIKE',
   SELECT_PHOTO: 'SELECT_PHOTO',
   CLOSE_PHOTO: 'CLOSE_PHOTO',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA'
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
 };
 
 const reducer = (state, action) => {
@@ -33,6 +34,9 @@ const reducer = (state, action) => {
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
 
+    case ACTIONS.SET_TOPIC_DATA:
+      return { ...state, topicData: action.payload };
+
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -51,7 +55,13 @@ export const useApplicationData = () => {
     fetch(`/api/photos`)
       .then(res => res.json())
       .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
-  });
+  }, []);
+
+  useEffect(() => {
+    fetch(`/api/topics`)
+      .then(res => res.json())
+      .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
+  }, []);
 
   return {
     state,

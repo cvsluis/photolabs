@@ -6,7 +6,7 @@ import { useApplicationData } from 'hooks/useApplicationData';
 
 const App = () => {
   const {
-    state: { likes, selectedPhoto, modal, photoData },
+    state: { likes, selectedPhoto, modal, photoData, topicData },
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal
@@ -17,8 +17,22 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute isFavPhotoExist={isFavPhotoExist} isLiked={isLiked} toggleLike={updateToFavPhotoIds} photos={photoData} showModal={setPhotoSelected} />
-      {modal && <PhotoDetailsModal showModal={setPhotoSelected} hideModal={onClosePhotoDetailsModal} selectedPhoto={selectedPhoto} isLiked={isLiked} toggleLike={updateToFavPhotoIds} />}
+      <HomeRoute
+        isFavPhotoExist={isFavPhotoExist}
+        isLiked={isLiked}
+        toggleLike={updateToFavPhotoIds}
+        photos={photoData}
+        topics={topicData}
+        showModal={setPhotoSelected}
+      />
+      {modal &&
+        <PhotoDetailsModal
+          showModal={setPhotoSelected}
+          hideModal={onClosePhotoDetailsModal}
+          selectedPhoto={selectedPhoto}
+          isLiked={isLiked}
+          toggleLike={updateToFavPhotoIds}
+        />}
     </div>
   );
 };
