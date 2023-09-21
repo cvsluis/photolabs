@@ -54,17 +54,9 @@ export const useApplicationData = () => {
 
   const setPhotoSelected = photo => dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
 
-  const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
-
   const getPhotosByTopic = topicId => dispatch({ type: ACTIONS.SELECT_TOPIC, payload: topicId });
 
-  useEffect(() => {
-    if (state.selectedTopic) {
-      fetch(`/api/topics/photos/${state.selectedTopic}`)
-        .then(res => res.json())
-        .then(photosByTopic => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photosByTopic }));
-    }
-  }, [state.selectedTopic]);
+  const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
 
   useEffect(() => {
     fetch(`/api/photos`)
@@ -77,6 +69,14 @@ export const useApplicationData = () => {
       .then(res => res.json())
       .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
   }, []);
+
+  useEffect(() => {
+    if (state.selectedTopic) {
+      fetch(`/api/topics/photos/${state.selectedTopic}`)
+        .then(res => res.json())
+        .then(photosByTopic => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photosByTopic }));
+    }
+  }, [state.selectedTopic]);
 
   return {
     state,
