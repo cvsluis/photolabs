@@ -9,6 +9,7 @@ const App = () => {
     state: { likes, selectedPhoto, modal, photoData, topicData },
     updateToFavPhotoIds,
     setPhotoSelected,
+    getPhotosByTopic,
     onClosePhotoDetailsModal
   } = useApplicationData();
 
@@ -23,6 +24,7 @@ const App = () => {
         toggleLike={updateToFavPhotoIds}
         photos={photoData}
         topics={topicData}
+        getPhotosByTopic={getPhotosByTopic}
         showModal={setPhotoSelected}
       />
       {modal &&
