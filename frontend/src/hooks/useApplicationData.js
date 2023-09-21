@@ -3,6 +3,7 @@ import { useReducer, useEffect } from 'react';
 const INITIAL_STATE = {
   likes: [],
   selectedPhoto: null,
+  selectedTopic: null,
   modal: false,
   photoData: [],
   topicData: []
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
 const ACTIONS = {
   TOGGLE_LIKE: 'TOGGLE_LIKE',
   SELECT_PHOTO: 'SELECT_PHOTO',
+  SELECT_TOPIC: 'SELECT_TOPIC',
   CLOSE_PHOTO: 'CLOSE_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA'
@@ -27,6 +29,9 @@ const reducer = (state, action) => {
 
     case ACTIONS.SELECT_PHOTO:
       return { ...state, modal: true, selectedPhoto: action.payload };
+
+    case ACTIONS.SELECT_TOPIC:
+      return { ...state, selectedTopic: action.payload };
 
     case ACTIONS.CLOSE_PHOTO:
       return { ...state, modal: false, selectedPhoto: null };
@@ -51,14 +56,15 @@ export const useApplicationData = () => {
 
   const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
 
-  const getPhotosByTopic = topicId => {
-    fetch(`/api/topics/photos/${topicId}`)
-      .then(res => res.json())
-      .then(photosByTopic => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photosByTopic });
-        console.log(state.photoData);
-      });
-  };
+  const getPhotosByTopic = topicId => dispatch({ type: ACTIONS.SELECT_TOPIC, payload: topicId });
+
+  useEffect(() => {
+    if (state.selectedTopic) {
+      fetch(`/api/topics/photos/${state.selectedTopic}`)
+        .then(res => res.json())
+        .then(photosByTopic => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photosByTopic }));
+    }
+  }, [state.selectedTopic]);
 
   useEffect(() => {
     fetch(`/api/photos`)
