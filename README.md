@@ -46,7 +46,8 @@ npm start
 
 ## Dependencies
 
-- [React]()
+- [React](https://react.dev)
 - [Express](https://expressjs.com)
-- [Node.js](https://nodejs.org) v5.10.x or above
+- [Node.js](https://nodejs.org)
+- [Babel](https://babeljs.io/)
 - [SASS](https://www.npmjs.com/package/sass)
