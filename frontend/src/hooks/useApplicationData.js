@@ -18,6 +18,8 @@ const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA'
 };
 
+// function to specify how state is updated
+// returns updated state
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.TOGGLE_LIKE:
@@ -47,6 +49,8 @@ const reducer = (state, action) => {
   }
 };
 
+// exported custom hook for managing state
+// returns state and functions needed for application
 export const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
@@ -58,18 +62,21 @@ export const useApplicationData = () => {
 
   const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
 
+  // fetch all photos
   useEffect(() => {
     fetch(`/api/photos`)
       .then(res => res.json())
       .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
   }, []);
 
+  // fetch all topics
   useEffect(() => {
     fetch(`/api/topics`)
       .then(res => res.json())
       .then(topicData => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData }));
   }, []);
 
+  // fetch photos based on topic
   useEffect(() => {
     if (state.selectedTopic) {
       fetch(`/api/topics/photos/${state.selectedTopic}`)
