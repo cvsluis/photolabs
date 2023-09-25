@@ -5,6 +5,7 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { useApplicationData } from 'hooks/useApplicationData';
 
 const App = () => {
+  // state and functions to change state imported from useApplicationData
   const {
     state: { likes, selectedPhoto, modal, photoData, topicData },
     updateToFavPhotoIds,
@@ -14,7 +15,9 @@ const App = () => {
     onClosePhotoDetailsModal
   } = useApplicationData();
 
+  // returns boolean to determine if heart is filled in or not
   const isLiked = photoId => likes.includes(photoId);
+  // returns boolean to determine if notification is displayed or not
   const isFavPhotoExist = likes.length > 0;
 
   return (
