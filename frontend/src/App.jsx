@@ -10,6 +10,7 @@ const App = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     getPhotosByTopic,
+    getAllPhotos,
     onClosePhotoDetailsModal
   } = useApplicationData();
 
@@ -25,6 +26,7 @@ const App = () => {
         photos={photoData}
         topics={topicData}
         getPhotosByTopic={getPhotosByTopic}
+        getAllPhotos={getAllPhotos}
         showModal={setPhotoSelected}
       />
       {modal &&

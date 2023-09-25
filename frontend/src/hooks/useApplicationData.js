@@ -63,10 +63,15 @@ export const useApplicationData = () => {
   const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
 
   // fetch all photos
-  useEffect(() => {
+  const getAllPhotos = () => {
     fetch(`/api/photos`)
       .then(res => res.json())
       .then(photoData => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData }));
+  };
+
+  // fetch all photos on intial render
+  useEffect(() => {
+    getAllPhotos();
   }, []);
 
   // fetch all topics
@@ -90,6 +95,7 @@ export const useApplicationData = () => {
     updateToFavPhotoIds,
     setPhotoSelected,
     getPhotosByTopic,
+    getAllPhotos,
     onClosePhotoDetailsModal
   };
 };
