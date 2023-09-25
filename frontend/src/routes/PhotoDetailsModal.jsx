@@ -15,9 +15,9 @@ const PhotoDetailsModal = ({ isLiked, toggleLike, hideModal, selectedPhoto }) =>
 
       <div className="photo-details-modal__images">
         <PhotoFavButton isLiked={isLiked} toggleLike={toggleLike} photoId={id}></PhotoFavButton>
-        <img className="photo-details-modal__image" src={urls.regular} alt="Image"></img>
+        <img className="photo-details-modal__image" src={urls.regular} alt={`Image taken in ${location.city}, ${location.country}`}></img>
         <div className="photo-details-modal__photographer-details">
-          <img className="photo-list__user-profile" src={user.profile} alt={`Profile Image for ${user.username}`}></img>
+          <img className="photo-list__user-profile" src={user.profile} alt={`Profile for ${user.username}`}></img>
           <div className="photo-list__user-info">
             <span>{user.name}</span>
             <div className="photo-list__user-location">
