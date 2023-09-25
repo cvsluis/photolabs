@@ -7,12 +7,13 @@ import { useApplicationData } from 'hooks/useApplicationData';
 const App = () => {
   // state and functions to change state imported from useApplicationData
   const {
-    state: { likes, selectedPhoto, modal, photoData, topicData },
+    state: { likes, selectedPhoto, modal, photoData, topicData, dark },
     updateToFavPhotoIds,
     setPhotoSelected,
     getPhotosByTopic,
     getAllPhotos,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    setDark
   } = useApplicationData();
 
   // returns boolean to determine if heart is filled in or not
@@ -21,7 +22,7 @@ const App = () => {
   const isFavPhotoExist = likes.length > 0;
 
   return (
-    <div className="App">
+    <div className={`App ${dark}`}>
       <HomeRoute
         isFavPhotoExist={isFavPhotoExist}
         isLiked={isLiked}
@@ -31,6 +32,8 @@ const App = () => {
         getPhotosByTopic={getPhotosByTopic}
         getAllPhotos={getAllPhotos}
         showModal={setPhotoSelected}
+        dark={dark}
+        setDark={setDark}
       />
       {modal &&
         <PhotoDetailsModal
@@ -39,6 +42,7 @@ const App = () => {
           selectedPhoto={selectedPhoto}
           isLiked={isLiked}
           toggleLike={updateToFavPhotoIds}
+          dark={dark}
         />}
     </div>
   );

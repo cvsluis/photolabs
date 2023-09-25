@@ -1,3 +1,5 @@
+@import '_color-themes';
+
 .photo-list__fav-icon {
   position: relative;
   top: 8px;
@@ -5,11 +7,15 @@
   cursor: pointer;
   margin-bottom: -44px;
   border-width: 0.1px;
-  background-color: #EEEEEE;
+  background-color: $white;
   width: 46px;
   height: 46px;
   text-align: center;
   border-radius: 100%;
+}
+
+.photo-list__fav-icon.dark {
+  background-color: $darkest-grey;
 }
 
 .photo-list__fav-icon-svg {

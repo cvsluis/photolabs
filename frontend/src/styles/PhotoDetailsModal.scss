@@ -1,5 +1,7 @@
+@import '_color-themes';
+
 .photo-details-modal {
-  background-color: white;
+  background-color: $lightest-grey;
   box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
   position: fixed;
   top: 43%;
@@ -11,10 +13,12 @@
   border-radius: 12px;
 }
 
+.photo-details-modal.dark {
+  background-color: $darkest-grey;
+}
+
 .photo-details-modal__close-button {
-  background-color: white;
   border: none;
-  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -22,6 +26,7 @@
   cursor: pointer;
   margin-left: 16px;
   margin-top: 16px;
+  background-color: transparent;
 }
 
 .photo-details-modal__images {
@@ -51,7 +56,6 @@
 .photo-details-modal__header {
   font-size: 18px;
   font-weight: 500;
-  color: #1e1e1e;
   margin-top: 24px;
   margin-bottom: 0px;
   width: 90%;
