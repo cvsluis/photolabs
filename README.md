@@ -19,6 +19,7 @@ View Similar Photos
 !["View Similar Photos"](docs/similar_photos.png)
 
 ## Features
+- (Stretch) Users can click on Photolabs logo to view all photos in application
 - Users can like an individual photo from anywhere within the application where the photo is displayed
 - Users can view a heart icon with a notification in the navigation if there are liked photos
 - Users can click on a photo to view a larger version of the photo and relevant / similar photos
