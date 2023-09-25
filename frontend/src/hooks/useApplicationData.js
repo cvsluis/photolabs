@@ -6,7 +6,8 @@ const INITIAL_STATE = {
   selectedTopic: null,
   modal: false,
   photoData: [],
-  topicData: []
+  topicData: [],
+  dark: ''
 };
 
 const ACTIONS = {
@@ -15,7 +16,8 @@ const ACTIONS = {
   SELECT_TOPIC: 'SELECT_TOPIC',
   CLOSE_PHOTO: 'CLOSE_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  TOGGLE_DARK_MODE: 'TOGGLE_DARK_MODE'
 };
 
 // function to specify how state is updated
@@ -44,6 +46,12 @@ const reducer = (state, action) => {
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
 
+    case ACTIONS.TOGGLE_DARK_MODE:
+      if (state.dark === 'dark') {
+        return { ...state, dark: '' };
+      }
+      return { ...state, dark: 'dark' };
+
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
   }
@@ -61,6 +69,8 @@ export const useApplicationData = () => {
   const getPhotosByTopic = topicId => dispatch({ type: ACTIONS.SELECT_TOPIC, payload: topicId });
 
   const onClosePhotoDetailsModal = () => dispatch({ type: ACTIONS.CLOSE_PHOTO });
+
+  const setDark = () => dispatch({ type: ACTIONS.TOGGLE_DARK_MODE });
 
   // fetch all photos
   const getAllPhotos = () => {
@@ -96,6 +106,7 @@ export const useApplicationData = () => {
     setPhotoSelected,
     getPhotosByTopic,
     getAllPhotos,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    setDark
   };
 };
