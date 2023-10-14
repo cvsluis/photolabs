@@ -6,20 +6,25 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 This project was built as a part of my learnings at [Lighthouse Labs](https://www.lighthouselabs.ca).
 
 ## Final Product
-View of Home Page with Liked Notification
+View of Home Page with Liked Notification in Light Mode
 
-!["View of Home Page with Liked Notification"](docs/home.png)
+!["View of Home Page with Liked Notification"](docs/home_light.png)
 
-View One Photo
+View of Photos Filtered by People Topic in Dark Mode
 
-!["View One Photo"](docs/one_photo.png)
+!["View of Photos Filtered by People Topic](docs/topic_dark.png)
 
-View Similar Photos
+View One Photo in Light Mode
 
-!["View Similar Photos"](docs/similar_photos.png)
+!["View One Photo"](docs/one_photo_light.png)
+
+View Similar Photos in Dark Mode
+
+!["View Similar Photos"](docs/similar_dark.png)
 
 ## Features
-- (Stretch) Users can click on PhotoLabs logo to view all photos in application
+- Users can toggle Light and Dark mode with sun and moon icons
+- Users can click on PhotoLabs logo to view all photos in application
 - Users can like an individual photo from anywhere within the application where the photo is displayed
 - Users can view a heart icon with a notification in the navigation if there are liked photos
 - Users can click on a photo to view a larger version of the photo and relevant / similar photos
